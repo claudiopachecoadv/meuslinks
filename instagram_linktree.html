@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@iep.calcula_i - Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .profile {
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .profile h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .profile p {
+            font-size: 16px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .link-button:hover::before {
+            left: 100%;
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .link-icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        .whatsapp { background: linear-gradient(45deg, #25D366, #128C7E); }
+        .tiktok { background: linear-gradient(45deg, #FF0050, #000000); }
+        .kwai { background: linear-gradient(45deg, #FF6B35, #F7931E); }
+        .calculator { background: linear-gradient(45deg, #4CAF50, #2E7D32); }
+        .ebook { background: linear-gradient(45deg, #2196F3, #1565C0); }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .whatsapp:hover {
+            animation: pulse 0.6s infinite;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .link-button {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <div class="profile-pic">⚖️</div>
+            <h1>@iep.calcula_i</h1>
+            <p>Advogado Especialista em Direito Trabalhista</p>
+        </div>
+
+        <div class="links">
+            <a href="https://wa.me/5585994193322?text=Olá! Vim através do seu Instagram." class="link-button whatsapp">
+                <span class="link-icon">📱</span>
+                Fale Comigo no WhatsApp
+            </a>
+
+            <a href="https://www.tiktok.com/@advogado.claudio?_t=ZM-8wkMPy0piPW&_r=1" class="link-button tiktok">
+                <span class="link-icon">🎵</span>
+                Siga no TikTok @advogado.claudio
+            </a>
+
+            <a href="https://k.kwai.com/u/@Claudio.adv/CsQGPoJN" class="link-button kwai">
+                <span class="link-icon">📹</span>
+                Siga no Kwai @advogado.claudio
+            </a>
+
+            <a href="https://pay.kiwify.com.br/4bhqvQT" class="link-button calculator">
+                <span class="link-icon">🧮</span>
+                Calculadora de Verbas Trabalhistas
+            </a>
+
+            <a href="https://pay.kiwify.com.br/2M2Bue6" class="link-button ebook">
+                <span class="link-icon">📚</span>
+                Ebook: Como Calcular Verbas
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Adiciona efeito de clique suave
+        document.querySelectorAll('.link-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Cria efeito de ripple
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Adiciona animação CSS para o ripple
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
